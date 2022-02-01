@@ -1,5 +1,16 @@
-<div class="h-100 d-flex flex-column">
-  <div class="bg-dark text-light p-3">Header</div>
-  <router-outlet></router-outlet>
-  <div class="bg-dark text-light p-3">Footer</div>
-</div>
+<header>
+  <!-- Fixed navbar -->
+
+  <app-navbar></app-navbar>
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+ <router-outlet></router-outlet>
+</main>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>

@@ -30,9 +30,13 @@ export class TestFormComponent implements OnInit {
         "type": "object",
         "title": "Comment",
         "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
+          "number": {
+            "title": "number",
+            "type": "integer"
+          },
+          "boolean": {
+            "title": "bool",
+            "type": "boolean"
           },
           "email": {
             "title": "Email",
@@ -48,13 +52,15 @@ export class TestFormComponent implements OnInit {
           }
         },
         "required": [
-          "name",
+          "number",
           "email",
+          'boolean',
           "comment"
         ]
       },
       "form": [
-        "name",
+        "number",
+        "boolean",
         "email",
         {
           "key": "comment",

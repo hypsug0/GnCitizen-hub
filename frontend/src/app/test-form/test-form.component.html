@@ -1,54 +1,38 @@
-<h1>Testez les formulaires déjà existants</h1>
-<div class="d-flex flex-grow-1">
-  <div class="bg-danger text-light w-25">
+<div class="row">
+  <div class="col-2 p-0 border mh-100 overflow-auto">
     <app-list-forms></app-list-forms>
   </div>
-</div>
-<div class="w-75">
-  <h2>Custom form</h2>
-  <button (click)="populateSchema()">populate schema</button>
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-    <li [ngbNavItem]="1">
-      <a ngbNavLink>Demo form</a>
-      <ng-template ngbNavContent>
-        <form *ngIf="jsonFormSchema; else noJsonFormSchema">
-          <json-schema-form
-            [form]="jsonFormSchema"
-            [options]="formOptions"
-            [framework]="FrameworkComponent"
-            (onChanges)="onChanges($event)"
-          >
-          </json-schema-form>
-        </form>
-        <ng-template #noJsonFormSchema>
-          <ngb-alert [dismissible]="false" ngElse>
-            <strong>Warning!</strong> Choisissez un formulaire
-          </ngb-alert>
+  <div class="col-6 border mh-100" style="overflow-y: scroll">
+    <h2>Formulaire</h2>
+    <button class=" m-2 btn btn-success" (click)="populateSchema()">populate schema</button>
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Demo form</a>
+        <ng-template ngbNavContent>
+          <form *ngIf="jsonFormSchema; else noJsonFormSchema">
+            <json-schema-form [form]="jsonFormSchema" [options]="formOptions" [framework]="FrameworkComponent"
+              (onChanges)="onChanges($event)">
+            </json-schema-form>
+          </form>
+          <ng-template #noJsonFormSchema>
+            <ngb-alert [dismissible]="false" ngElse>
+              <strong>Warning!</strong> Choisissez un formulaire
+            </ngb-alert>
+          </ng-template>
         </ng-template>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink>json schema form data</a>
-      <ng-template ngbNavContent>
-        <div class="card border-info">
-          <div class="card-body">
-            <pre>{{ jsonFormSchema | json }}</pre>
-          </div>
-        </div>
-      </ng-template>
-    </li>
-  </ul>
+      </li>
+      <li [ngbNavItem]="2" *ngIf='jsonFormSchema'>
+        <a ngbNavLink>json schema form data</a>
+        <ng-template ngbNavContent>
+          <pre><code [highlight]="jsonFormSchema|json"></code></pre>
 
-  <div [ngbNavOutlet]="nav" class="mt-2"></div>
-</div>
-<div
-  class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white"
-  style="width: 380px"
->
-  <h2>Data</h2>
-  <div class="card border-info">
-    <div class="card-body">
-      <pre>{{ liveFormData | json }}</pre>
-    </div>
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+  <div class="col-4 border" style="overflow-y: scroll">
+    <h2>Données</h2>
+    <pre><code [highlight]="liveFormData|json"></code></pre>
   </div>
 </div>

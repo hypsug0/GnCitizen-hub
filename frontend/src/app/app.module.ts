@@ -8,7 +8,9 @@ import { TestFormComponent } from './test-form/test-form.component';
 import { RouterModule } from '@angular/router';
 import { Bootstrap4FrameworkModule } from '@ajsf/bootstrap4';
 import { FrameworkComponent } from './commons/form-framework/form-framework.component';
-import { ListFormsComponent } from './commons/list-forms/list-forms.component'
+import { ListFormsComponent } from './commons/list-forms/list-forms.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [
@@ -16,19 +18,30 @@ import { ListFormsComponent } from './commons/list-forms/list-forms.component'
     EditFormComponent,
     TestFormComponent,
     FrameworkComponent,
-    ListFormsComponent
+    ListFormsComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NgbModule,
     Bootstrap4FrameworkModule,
+    HighlightModule,
     RouterModule.forRoot([
-      { path: '', component: TestFormComponent },
-      { path: 'edit/:formId', component: EditFormComponent },
-    ])
+    { path: '', component: TestFormComponent },
+    { path: 'edit/:formId', component: EditFormComponent },
+], {
+    initialNavigation: 'enabled'
+})
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        fullLibraryLoader: () => import('highlight.js')
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
