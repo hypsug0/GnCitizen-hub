@@ -2,8 +2,9 @@
 
 Objective:
 * Listing existing GeoNature-Citizen instances
+* Provide a json schema form editor
 * share resources (custom-forms)
-* Some news
+* Some news ?
 
 # Softwares
 
