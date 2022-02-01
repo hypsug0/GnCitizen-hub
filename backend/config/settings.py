@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -81,11 +81,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 DATABASES = {
-    'default': config(
-        'DATABASE_URL',
-        cast=db_url
-    )
+    "default": {
+        "ENGINE": config("ENGINE", 'django.contrib.gis.db.backends.postgis'),
+        "NAME": config("DBNAME"),
+        "USER": config("DBUSER"),
+        "PASSWORD": config("DBPWD"),
+        "HOST": config("HOST", "localhost"),
+        "PORT": config("PORT", "5432"),
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
