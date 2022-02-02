@@ -1,6 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
+
 from .models import CustomForm
 from .serializers import CustomFormSerializer
+
 
 class CustomFormViewSet(ModelViewSet):
     """
