@@ -14,6 +14,7 @@ class CustomForm (BaseModel):
     class Meta:
         verbose_name = _("Custom form")
         verbose_name_plural = _("Custom forms")
+        unique_together = [['name', 'source']]
 
     def __str__(self):
         return self.name

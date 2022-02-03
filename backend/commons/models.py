@@ -39,14 +39,14 @@ class BaseModel(models.Model):  # base class should subclass 'django.db.models.M
 
 class Tags(BaseModel):
 
-    label = models.CharField(_("Label"), max_length=50)
+    label = models.CharField(_("Label"), unique=True, max_length=50)
 
     class Meta:
         verbose_name = _("Tag")
         verbose_name_plural = _("Tags")
 
     def __str__(self):
-        return self.name
+        return self.label
 
     def get_absolute_url(self):
         return reverse("Tag_detail", kwargs={"pk": self.pk})

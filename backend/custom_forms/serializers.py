@@ -18,5 +18,5 @@ class CustomFormSerializer(ModelSerializer):
         custom_form = CustomForm.objects.create(**validated_data)
         for t in tags:
             print(t)
-            Tags.objects.create(custom_form=custom_form, **tags)
+            custom_form.tags.get_or_create(label=t['label'])
         return custom_form
