@@ -30,7 +30,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
     { path: '', component: TestFormComponent },
     { path: 'edit/:formId', component: EditFormComponent },
 ], {
-    initialNavigation: 'enabled'
+  initialNavigation: 'enabledBlocking'
 })
   ],
 
