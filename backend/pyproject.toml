@@ -23,7 +23,7 @@ pylint = "^2.16.1"
 
 [tool.isort]
 include_trailing_comma = true
-line_length = 99
+line_length = 79
 multi_line_output = 3
 profile = "black"
 
@@ -47,11 +47,11 @@ exclude = '''
 )
 '''
 include = '\.pyi?$'
-line-length = 99
+line-length = 79
 target-version = ['py37']
 
 [tool.pylint.'MESSAGES CONTROL']
-max-line-length = 99
+max-line-length = 79
 
 [tool.mypy]
 ignore_missing_imports = true

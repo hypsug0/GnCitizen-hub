@@ -10,10 +10,10 @@ from .models import Tags
 
 
 class TagsSerializer(ModelSerializer):
-    """Tags serializer
-    """
+    """Tags serializer"""
+
     class Meta:  # pylint: disable=too-few-public-methods
-        """TagsSerializer Meta class
-        """
+        """TagsSerializer Meta class"""
+
         model = Tags
         fields = ["label"]

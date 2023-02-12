@@ -13,6 +13,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="customform",
             name="tags",
-            field=models.ManyToManyField(blank=True, to="commons.tags", verbose_name="Tags"),
+            field=models.ManyToManyField(
+                blank=True, to="commons.tags", verbose_name="Tags"
+            ),
         ),
     ]

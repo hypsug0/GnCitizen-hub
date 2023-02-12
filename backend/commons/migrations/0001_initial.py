@@ -19,16 +19,23 @@ class Migration(migrations.Migration):
                 (
                     "id",
                     models.BigAutoField(
-                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
                     ),
                 ),
                 (
                     "timestamp_create",
-                    models.DateTimeField(auto_now_add=True, verbose_name="Create timestamp"),
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Create timestamp"
+                    ),
                 ),
                 (
                     "timestamp_update",
-                    models.DateTimeField(auto_now=True, verbose_name="Update timestamp"),
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="Update timestamp"
+                    ),
                 ),
                 ("label", models.IntegerField(verbose_name="Label")),
                 (

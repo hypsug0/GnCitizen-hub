@@ -12,7 +12,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="customform",
             name="name",
-            field=models.CharField(max_length=50, unique=True, verbose_name="nom"),
+            field=models.CharField(
+                max_length=50, unique=True, verbose_name="nom"
+            ),
         ),
         migrations.AlterUniqueTogether(
             name="customform",

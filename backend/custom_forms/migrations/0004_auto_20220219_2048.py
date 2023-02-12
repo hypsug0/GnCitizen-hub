@@ -13,7 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="customform",
             name="source",
-            field=models.URLField(blank=True, null=True, verbose_name="Source"),
+            field=models.URLField(
+                blank=True, null=True, verbose_name="Source"
+            ),
         ),
         migrations.AlterField(
             model_name="customform",

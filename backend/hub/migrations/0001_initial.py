@@ -20,15 +20,27 @@ class Migration(migrations.Migration):
                 (
                     "id",
                     models.BigAutoField(
-                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
                     ),
                 ),
                 ("name", models.CharField(max_length=50, verbose_name="Nom")),
                 ("url", models.URLField(verbose_name="URL")),
-                ("location", django.contrib.gis.db.models.fields.PointField(srid=4326)),
+                (
+                    "location",
+                    django.contrib.gis.db.models.fields.PointField(srid=4326),
+                ),
                 ("is_active", models.BooleanField(verbose_name="Actif")),
-                ("launch_date", models.DateField(verbose_name="Date de lancement")),
-                ("project", models.CharField(max_length=50, verbose_name="Projet")),
+                (
+                    "launch_date",
+                    models.DateField(verbose_name="Date de lancement"),
+                ),
+                (
+                    "project",
+                    models.CharField(max_length=50, verbose_name="Projet"),
+                ),
                 ("timestamp_create", models.DateTimeField(auto_now_add=True)),
                 ("timestamp_update", models.DateTimeField(auto_now=True)),
                 (

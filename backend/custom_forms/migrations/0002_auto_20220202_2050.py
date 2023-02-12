@@ -29,7 +29,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="customform",
             name="tags",
-            field=models.ManyToManyField(to="commons.Tags", verbose_name="Tags"),
+            field=models.ManyToManyField(
+                to="commons.Tags", verbose_name="Tags"
+            ),
         ),
         migrations.AddField(
             model_name="customform",
@@ -44,7 +46,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="customform",
             name="timestamp_update",
-            field=models.DateTimeField(auto_now=True, verbose_name="Update timestamp"),
+            field=models.DateTimeField(
+                auto_now=True, verbose_name="Update timestamp"
+            ),
         ),
         migrations.AddField(
             model_name="customform",

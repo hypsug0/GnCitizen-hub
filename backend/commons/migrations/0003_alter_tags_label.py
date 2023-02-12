@@ -12,6 +12,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="tags",
             name="label",
-            field=models.CharField(max_length=50, unique=True, verbose_name="Label"),
+            field=models.CharField(
+                max_length=50, unique=True, verbose_name="Label"
+            ),
         ),
     ]

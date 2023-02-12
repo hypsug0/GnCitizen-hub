@@ -15,12 +15,23 @@ class Migration(migrations.Migration):
                 (
                     "id",
                     models.BigAutoField(
-                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
                     ),
                 ),
                 ("name", models.CharField(max_length=50, verbose_name="nom")),
-                ("json_schema_form", models.JSONField(verbose_name="json schema form")),
-                ("date", models.DateField(auto_now_add=True, verbose_name="Date d'ajout")),
+                (
+                    "json_schema_form",
+                    models.JSONField(verbose_name="json schema form"),
+                ),
+                (
+                    "date",
+                    models.DateField(
+                        auto_now_add=True, verbose_name="Date d'ajout"
+                    ),
+                ),
                 ("source", models.URLField(verbose_name="Source")),
             ],
             options={
