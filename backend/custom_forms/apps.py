@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class CustomFormsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'custom_forms'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "custom_forms"

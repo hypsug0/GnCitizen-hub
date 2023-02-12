@@ -9,6 +9,6 @@ content-type: application/json
 {
     "name":"test5",
     "source":"https://gncitizen.fr",
-    "json_schema_form":{"key":"value"},
-    "tags":[{"label":"harry"},{"label":"potter"}]
+    "json_schema_form":{"myKey":"myValue"},
+    "tags":[{"label":"harry"},{"label":"terence"}]
 }

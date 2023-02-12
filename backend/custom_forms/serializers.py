@@ -1,13 +1,14 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SlugRelatedField
 
+from commons.models import Tags
 from commons.serializers import TagsSerializer
 
 from .models import CustomForm
-from commons.models import Tags
 
 
 class CustomFormSerializer(ModelSerializer):
     tags = TagsSerializer(many=True)
+    # tags = SlugRelatedField(many=True, read_only=True, slug_field="source")
 
     class Meta:
         model = CustomForm
@@ -18,5 +19,5 @@ class CustomFormSerializer(ModelSerializer):
         custom_form = CustomForm.objects.create(**validated_data)
         for t in tags:
             print(t)
-            custom_form.tags.get_or_create(label=t['label'])
+            custom_form.tags.get_or_create(label=t["label"])
         return custom_form

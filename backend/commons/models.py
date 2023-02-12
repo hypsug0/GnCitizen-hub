@@ -1,3 +1,8 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+"""GeoNature-Citizen hub commons models
+"""
+
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext as _
@@ -11,9 +16,7 @@ class BaseModel(models.Model):  # base class should subclass 'django.db.models.M
     timestamp_create = models.DateTimeField(
         _("Create timestamp"), auto_now_add=True, editable=False
     )
-    timestamp_update = models.DateTimeField(
-        _("Update timestamp"), auto_now=True, editable=False
-    )
+    timestamp_update = models.DateTimeField(_("Update timestamp"), auto_now=True, editable=False)
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
@@ -34,14 +37,18 @@ class BaseModel(models.Model):  # base class should subclass 'django.db.models.M
     )
 
     class Meta:
+        """Base model Meta class
+        """
         abstract = True
 
 
 class Tags(BaseModel):
-
-    label = models.CharField(_("Label"), unique=True, max_length=50)
+    """Tags model"""
+    label = models.CharField(_("Label"), unique=True, max_length=50, null=False, blank=False)
 
     class Meta:
+        """Tags model Meta class
+        """
         verbose_name = _("Tag")
         verbose_name_plural = _("Tags")
 

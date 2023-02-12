@@ -8,5 +8,6 @@ class CustomFormViewSet(ModelViewSet):
     """
     A simple ViewSet for viewing and editing accounts.
     """
+
     queryset = CustomForm.objects.all()
     serializer_class = CustomFormSerializer
